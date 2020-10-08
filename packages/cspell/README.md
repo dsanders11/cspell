@@ -118,6 +118,7 @@ All settings are prefixed with `cSpell:` or `spell-checker:`.
 * `ignoreRegExp` -- Any text matching the regular expression will NOT be checked for spelling.
 * `includeRegExp` -- Only text matching the collection of includeRegExp will be checked.
 * `enableCompoundWords` / `disableCompoundWords` -- Allow / disallow words like: "stringlength".
+* `languageId` -- defines which programming languages to match against.
 
 ### Enable / Disable checking sections of code
 It is possible to disable / enable the spell checker by adding comments to your code.
@@ -261,6 +262,17 @@ def sum_it(self, seq):
         yield variabele
 ```
 
+
+### Language ID
+
+*LanguageId* allows you to define which programming languages to match against.
+
+```javascript
+// cSpell:languageId javascript,javascriptreact
+const companyName = 'ACME Corporation';
+```
+
+**Note:** The languageId specified with `languageId` will be used for the entire file.
 
 ## Predefined RegExp expressions
 

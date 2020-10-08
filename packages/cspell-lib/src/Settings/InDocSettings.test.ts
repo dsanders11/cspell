@@ -22,6 +22,7 @@ describe('Validate InDocSettings', () => {
             'language en-US',
             'local',
             'local en, nl',
+            'languageId typescript'
         ]);
     });
 
@@ -83,12 +84,17 @@ describe('Validate InDocSettings', () => {
         const ranges = TextRange.findMatchingRangesForPatterns(matches, sampleCode);
         // console.log(ranges);
         // console.log(replaceRangesWith(sampleCode, ranges));
-        expect(ranges.length).toBe(34);
+        expect(ranges.length).toBe(35);
     });
 
     test('test fetching the local for the text', () => {
         const settings = InDoc.getInDocumentSettings(sampleCode);
         expect(settings.language).toBe('en, nl');
+    });
+
+    test('test setting languageId for file', () => {
+        const settings = InDoc.getInDocumentSettings(sampleCode);
+        expect(settings.languageId).toBe('typescript');
     });
 });
 // cSpell:ignore faullts straange
@@ -118,6 +124,7 @@ const sampleCode = `
     // cspell:local
     // cspell:local en, nl
 
+    // cspell:languageId typescript
 `;
 
 // cspell:ignore againxx
